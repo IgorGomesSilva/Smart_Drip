@@ -5,7 +5,8 @@ module.exports = function () {
   var usuario = Schema({
     nome: String,
     email: String,
-    idade: Number
+    idade: Number,
+    status: Boolean
   });
 
   return db.model('usuario', usuario);

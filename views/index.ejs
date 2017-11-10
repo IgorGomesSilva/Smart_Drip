@@ -4,7 +4,7 @@
   <meta charset=utf-8>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="stylesheets/style.css">
-  <title>Smart Drip Ltda. </title>
+  <title>Smart Drip</title>
 </head>
 <body>
   <header class="bg-dark">
@@ -13,8 +13,29 @@
     </div>
   </header>
   <section>
-    <div class="col-30 bg-grey">Esquerda</div>
-    <div class="col-70">Direita  </div>
+    <div class="col-30 bg-grey">
+      <form action="/add" method="post">
+        <legend>Cadastrar Usuario</legend>
+        <input type="text" name="nome" placeholder="Nome">
+        <textarea name="email" id="" rows="10" cols="30" placeholder="Email"></textarea>
+        <button type="submit" name="btnSalvar">Salvar</button>
+      </form>
+    </div>
+    <div class="col-70">
+      <table>
+        <tbody>
+          <% for (var i=0; i < usuario.length; i++) { %>
+          <tr>
+            <td>#<%= i+1 %> <strong><%= usuario[i].nome %></strong></td>
+            <td class="actions"><a href="/turn/<%= usuario[i]._id %>" class="<%= usuario[i].status ? '': 'color-red'%>">
+              <%= usuario[i].status ? 'ok': 'not ok'%>
+            </a></td>
+            <td class="highlight"><%= usuario[i].email %></td>
+          </tr>
+          <% } %>
+        </tbody>
+      </table>
+    </div>
   </section>
 </body>
 </html>
