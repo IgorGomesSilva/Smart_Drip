@@ -5,6 +5,7 @@ module.exports = function () {
   var usuario = Schema({
     nome: String,
     email: String,
+    reclamacao: String,
     idade: Number,
     status: Boolean
   });

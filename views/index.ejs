@@ -15,9 +15,11 @@
   <section>
     <div class="col-30 bg-grey">
       <form action="/add" method="post">
-        <legend>Cadastrar Usuario</legend>
+        <legend>Registrar Reclamação</legend>
         <input type="text" name="nome" placeholder="Nome">
-        <textarea name="email" id="" rows="10" cols="30" placeholder="Email"></textarea>
+        <input type="text" name="email" placeholder="Email">
+        <input type="text" name="idade" placeholder="Idade">
+        <textarea name="reclamacao" id="" rows="10" cols="30" placeholder="Digite aqui sua Reclamação"></textarea>
         <button type="submit" name="btnSalvar">Salvar</button>
       </form>
     </div>
@@ -26,11 +28,13 @@
         <tbody>
           <% for (var i=0; i < usuario.length; i++) { %>
           <tr>
-            <td>#<%= i+1 %> <strong><%= usuario[i].nome %></strong></td>
+            <td>#<%= i+1 %> <strong>Nome: <%= usuario[i].nome %></strong></td>
             <td class="actions"><a href="/turn/<%= usuario[i]._id %>" class="<%= usuario[i].status ? '': 'color-red'%>">
-              <%= usuario[i].status ? 'ok': 'not ok'%>
+              <%= usuario[i].status ? 'Respondida': 'Não respondida'%>
             </a></td>
-            <td class="highlight"><%= usuario[i].email %></td>
+            <td class="highlight">Email: <%= usuario[i].email %></td>
+            <td class="highlight">Idade: <%= usuario[i].idade %></td>
+            <td class="highlight">Reclamação: <%= usuario[i].reclamacao %></td>
           </tr>
           <% } %>
         </tbody>
